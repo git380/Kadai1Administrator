@@ -15,10 +15,13 @@
     <input type="text" id="fName" name="fName"><br>
     <label for="lName">姓:</label>
     <input type="text" id="lName" name="lName"><br>
-    <label for="emppasswd">パスワード:</label>
-    <input type="password" id="emppasswd" name="emppasswd"><br>
-    <label for="empRole">役割:</label>
-    <input type="text" id="empRole" name="empRole"><br>
+    <label for="empPasswd">パスワード:</label>
+    <input type="password" id="empPasswd" name="empPasswd"><br>
+    <label>役割:</label>
+    <input type="radio" id="receptionist" name="empRole" value="1">
+    <label for="receptionist">受付</label>
+    <input type="radio" id="doctor" name="empRole" value="2">
+    <label for="doctor">医師</label><br>
     <input type="submit" value="登録">
 </form>
 </body>

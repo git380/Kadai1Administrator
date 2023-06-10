@@ -48,8 +48,9 @@ public class LoginServlet extends HttpServlet {
             RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/L100/L101/loginOK.jsp");
             dispatcher.forward(request, response);
         } else { // ログイン失敗時
-            // リダイレクト
-            response.sendRedirect("/Kadai1Administrator/LoginServlet");
+            // フォワード
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/L100/L101/error.jsp");
+            dispatcher.forward(request, response);
         }
     }
 }

@@ -15,7 +15,10 @@
     </c:if>
     <c:if test="${not empty sessionScope.empId}">
         <li><a href="/Kadai1Administrator/LogoutServlet">ログアウト</a></li>
-        <li><a href="/Kadai1Administrator/RegisterServlet">ユーザ登録</a></li>
+        <li><a href="/Kadai1Administrator/RegisterServlet">従業員登録</a></li>
+        <li><a href="/Kadai1Administrator/RegisterServlet">従業員氏名変更</a></li>
+        <li><a href="/Kadai1Administrator/HospitalRegistrationServlet">他病院登録</a></li>
+        <li><a href="/Kadai1Administrator/HospitalSearchServlet">他病院住所検索</a></li>
     </c:if>
 </ul>
 </body>

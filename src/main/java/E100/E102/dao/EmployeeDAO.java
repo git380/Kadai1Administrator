@@ -18,7 +18,7 @@ public class EmployeeDAO extends DAOParam {
 
         // Connect to the database
         try (Connection connection = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS)) {
-            String sql = "SELECT * FROM employee";
+            String sql = "SELECT * FROM employee WHERE emprole != 0";
             PreparedStatement statement = connection.prepareStatement(sql);
             ResultSet resultSet = statement.executeQuery();
 

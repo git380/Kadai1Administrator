@@ -1,7 +1,7 @@
 package E100.E101.servlet;
 
 import A100.model.Account;
-import L100.L101.model.LoginLogic;
+import E100.E101.model.EmployeeRegisterLogic;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -33,14 +33,23 @@ public class RegisterServlet extends HttpServlet {
         String empPasswd = request.getParameter("empPasswd");
         int empRole = Integer.parseInt(request.getParameter("empRole"));
 
-        // 登録処理の実行
-        Account account = new Account(empId, fName, lName, empPasswd, empRole);
-        LoginLogic bo = new LoginLogic();
-        bo.newAccount(account);
+        EmployeeRegisterLogic bo = new EmployeeRegisterLogic();
 
-        System.out.println(empId + " " + fName + " " + lName + " " + empPasswd + " " + empRole);
+        if (bo.nullEmployee(empId)) {//IDかぶりなし
+            // 登録処理の実行
+            Account account = new Account(empId, fName, lName, empPasswd, empRole);
+            bo.newAccount(account);
 
-        response.sendRedirect("/Kadai1Administrator/LoginServlet");
+            System.out.println(empId + " " + fName + " " + lName + " " + empPasswd + " " + empRole);
+
+            // フォワード
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/E100/E101/registrationComplete.jsp");
+            dispatcher.forward(request, response);
+        } else {
+            // フォワード
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/E100/E101/registrationError.jsp");
+            dispatcher.forward(request, response);
+        }
     }
 }
 

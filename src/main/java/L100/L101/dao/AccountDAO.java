@@ -49,24 +49,4 @@ public class AccountDAO extends DAOParam {
         // 見つかったユーザーまたはnullを返す
         return account;
     }
-    public void insertAccount(Account account) {
-        // データベースへ接続
-        try (Connection connection = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS)) {
-            // SQL文の準備
-            String sql = "INSERT INTO employee (empid, empfname, emplname, emppasswd, emprole) VALUES (?, ?, ?, ?, ?)";
-            PreparedStatement preparedStatement = connection.prepareStatement(sql);
-
-            // パラメータの設定
-            preparedStatement.setString(1, account.getEmpId());
-            preparedStatement.setString(2, account.getEmpFName());
-            preparedStatement.setString(3, account.getEmpLName());
-            preparedStatement.setString(4, new SaltUserPassword().getDigest(account.getEmpId(),account.getEmpPasswd()));
-            preparedStatement.setInt(5, account.getEmpRole());
-
-            // SQL実行
-            preparedStatement.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
 }

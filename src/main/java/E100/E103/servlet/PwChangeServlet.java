@@ -44,7 +44,7 @@ public class PwChangeServlet extends HttpServlet {
             request.setAttribute("message", "PWの変更に失敗しました");
         }*/
 
-        System.out.println(empId + " " + empPasswd);
+        System.out.println(empId + " a " + empPasswd);
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/E100/E103/changeOK.jsp");
         dispatcher.forward(request, response);

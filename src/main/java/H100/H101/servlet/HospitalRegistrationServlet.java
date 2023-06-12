@@ -33,10 +33,19 @@ public class HospitalRegistrationServlet extends HttpServlet {
         int tabyouinshihonkin = Integer.parseInt(request.getParameter("tabyouinshihonkin"));
         int kyukyu = Integer.parseInt(request.getParameter("kyukyu"));
 
-        Hospital hospital = new Hospital(tabyouinid, tabyouinmei, tabyouinaddres, tabyouintel, tabyouinshihonkin, kyukyu);
         HospitalRegistrationLogic logic = new HospitalRegistrationLogic();
-        logic.registerHospital(hospital);
 
-        response.sendRedirect("/Kadai1Admin");
+        if (logic.checkHospital(tabyouinid)) {
+            Hospital hospital = new Hospital(tabyouinid, tabyouinmei, tabyouinaddres, tabyouintel, tabyouinshihonkin, kyukyu);
+            logic.registerHospital(hospital);
+
+            // フォワード
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/H100/H101/registrationComplete.jsp");
+            dispatcher.forward(request, response);
+        }else {
+            // フォワード
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/H100/H101/registrationError.jsp");
+            dispatcher.forward(request, response);
+        }
     }
 }

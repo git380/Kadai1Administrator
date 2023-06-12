@@ -6,6 +6,6 @@ public class HashPassword {
     public static void main(String[] args) {
         String id = "0000";
         String pw = "0000";
-        System.out.println(new SaltUserPassword().getDigest(id,pw));
+        System.out.println(new SaltUserPassword().getDigest(id, pw));
     }
 }

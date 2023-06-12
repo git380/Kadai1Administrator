@@ -2,11 +2,8 @@ package H100.H103.dao;
 
 import A100.dao.DAOParam;
 import H100.H101.model.Hospital;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 

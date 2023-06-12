@@ -29,6 +29,7 @@ public class EmployeeRegisterDAO extends DAOParam {
         // 検索結果のリストを返す
         return empSQLId == null;
     }
+
     public void insertAccount(Account account) {
         // データベースへ接続
         try (Connection connection = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS)) {
@@ -40,7 +41,7 @@ public class EmployeeRegisterDAO extends DAOParam {
             preparedStatement.setString(1, account.getEmpId());
             preparedStatement.setString(2, account.getEmpFName());
             preparedStatement.setString(3, account.getEmpLName());
-            preparedStatement.setString(4, new SaltUserPassword().getDigest(account.getEmpId(),account.getEmpPasswd()));
+            preparedStatement.setString(4, new SaltUserPassword().getDigest(account.getEmpId(), account.getEmpPasswd()));
             preparedStatement.setInt(5, account.getEmpRole());
 
             // SQL実行

@@ -17,19 +17,19 @@
     <input type="text" id="lName" name="lName"><br>
     <label for="empPasswd">パスワード:</label>
     <input type="password" id="empPasswd" name="empPasswd"><br>
-    <label>ロール:</label>
-    <input type="radio" id="receptionist" name="empRole" value="1">
-    <label for="receptionist">受付</label>
-    <input type="radio" id="doctor" name="empRole" value="2">
-    <label for="doctor">医師</label><br>
+    <label for="empRole">ロール:</label>
+    <select id="empRole" name="empRole">
+        <option value="1">受付</option>
+        <option value="2">医師</option>
+    </select><br>
     <input type="submit" value="登録" disabled>
 </form>
 <script>
-    const inputs = document.querySelectorAll('input[type=text], input[type=password], input[type=radio]');
+    const inputs = document.querySelectorAll('input[type=text], input[type=password]');
     const submitButton = document.querySelector('input[type=submit]');
     Array.from(inputs).forEach(input => {
-        input.addEventListener('change', () => {
-            submitButton.disabled = Array.from(inputs).some(input => !input.value) || !Array.from(document.querySelectorAll('input[type=radio]:checked')).length;
+        input.addEventListener('input', () => {
+            submitButton.disabled = Array.from(inputs).some(input => !input.value);
         });
     });
 </script>

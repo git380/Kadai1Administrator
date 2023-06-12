@@ -42,7 +42,7 @@ public class HospitalRegistrationServlet extends HttpServlet {
             // フォワード
             RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/H100/H101/registrationComplete.jsp");
             dispatcher.forward(request, response);
-        }else {
+        } else {
             // フォワード
             RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/H100/H101/registrationError.jsp");
             dispatcher.forward(request, response);

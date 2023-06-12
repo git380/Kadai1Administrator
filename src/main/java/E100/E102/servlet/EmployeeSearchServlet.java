@@ -25,7 +25,7 @@ public class EmployeeSearchServlet extends HttpServlet {
 
         if (employeeList.isEmpty()) {
             // Forward to error page if no employees found
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/E100/E102/error.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/E100/E102/employeeError.jsp");
             dispatcher.forward(request, response);
         } else {
             // Forward to employee list page

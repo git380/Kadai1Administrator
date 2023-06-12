@@ -1,8 +1,8 @@
 package L100.L101.model;
 
 public class Login {
-    private String empid;
-    private String emppasswd;
+    private final String empid;
+    private final String emppasswd;
 
     public Login(String empId, String emppasswd) {
         this.empid = empId;

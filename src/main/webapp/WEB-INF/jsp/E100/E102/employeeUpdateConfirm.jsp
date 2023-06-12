@@ -2,8 +2,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <title>従業員更新完了</title>
+    <meta charset="UTF-8">
+    <title>従業員更新完了</title>
 </head>
 <body>
 <h1>従業員更新完了</h1>

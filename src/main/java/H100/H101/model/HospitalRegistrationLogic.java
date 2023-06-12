@@ -7,6 +7,7 @@ public class HospitalRegistrationLogic {
         HospitalRegistrationDAO dao = new HospitalRegistrationDAO();
         return dao.checkHospital(tabyouinid);
     }
+
     public void registerHospital(Hospital hospital) {
         HospitalRegistrationDAO dao = new HospitalRegistrationDAO();
         dao.registerHospital(hospital);

@@ -1,11 +1,11 @@
 package A100.model;
 
-public class Account{
-    private String empId;
-    private String empFName;
-    private String empLName;
-    private String empPasswd;
-    private int empRole;
+public class Account {
+    private final String empId;
+    private final String empFName;
+    private final String empLName;
+    private final String empPasswd;
+    private final int empRole;
 
     public Account(String empId, String empFName, String empLName, String empPasswd, int empRole) {
         this.empId = empId;

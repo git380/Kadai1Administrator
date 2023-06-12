@@ -1,12 +1,12 @@
 package H100.H101.model;
 
 public class Hospital {
-    private String tabyouinid;
-    private String tabyouinmei;
-    private String tabyouinaddres;
-    private String tabyouintel;
-    private int tabyouinshihonkin;
-    private int kyukyu;
+    private final String tabyouinid;
+    private final String tabyouinmei;
+    private final String tabyouinaddres;
+    private final String tabyouintel;
+    private final int tabyouinshihonkin;
+    private final int kyukyu;
 
     public Hospital(String tabyouinid, String tabyouinmei, String tabyouinaddres, String tabyouintel, int tabyouinshihonkin, int kyukyu) {
         this.tabyouinid = tabyouinid;

@@ -28,10 +28,10 @@
 </form>
 
 <script>
-    const inputs = document.querySelectorAll('input[type=text], input[type=number], select');
+    const inputs = document.querySelectorAll('input[type=text], input[type=number]');
     const submitButton = document.querySelector('input[type=submit]');
     Array.from(inputs).forEach(input => {
-        input.addEventListener('change', () => {
+        input.addEventListener('input', () => {
             submitButton.disabled = Array.from(inputs).some(input => !input.value);
         });
     });

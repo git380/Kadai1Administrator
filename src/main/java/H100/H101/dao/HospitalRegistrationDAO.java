@@ -27,6 +27,7 @@ public class HospitalRegistrationDAO extends DAOParam {
         // 検索結果のリストを返す
         return tabyouinSQLId == null;
     }
+
     public void registerHospital(Hospital hospital) {
         try (Connection connection = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS)) {
             String sql = "INSERT INTO tabyouin (tabyouinid, tabyouinmei, tabyouinaddres, tabyouintel, tabyouinshihonkin, kyukyu) VALUES (?, ?, ?, ?, ?, ?)";

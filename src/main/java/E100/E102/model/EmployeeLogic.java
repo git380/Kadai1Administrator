@@ -10,6 +10,7 @@ public class EmployeeLogic {
         EmployeeDAO employeeDAO = new EmployeeDAO();
         return employeeDAO.getAllEmployees();
     }
+
     public boolean updateEmployee(String empId, String empFname, String empLname) {
         if (empFname.isEmpty() || empLname.isEmpty()) {
             return false; // Return false if first name or last name is empty

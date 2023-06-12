@@ -18,6 +18,7 @@ public class HospitalSearchServlet extends HttpServlet {
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/H100/H103/hospitalSearch.jsp");
         dispatcher.forward(request, response);
     }
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         String address = request.getParameter("address");

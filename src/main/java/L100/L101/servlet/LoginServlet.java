@@ -1,6 +1,7 @@
 package L100.L101.servlet;
 
-import java.io.IOException;
+import L100.L101.model.Login;
+import L100.L101.model.LoginLogic;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,9 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
-import L100.L101.model.Login;
-import L100.L101.model.LoginLogic;
+import java.io.IOException;
 
 @WebServlet("/LoginServlet")
 public class LoginServlet extends HttpServlet {

@@ -1,15 +1,11 @@
 package L100.L101.dao;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
 import A100.dao.DAOParam;
 import A100.model.Account;
 import L100.L101.hash.SaltUserPassword;
 import L100.L101.model.Login;
+
+import java.sql.*;
 
 public class AccountDAO extends DAOParam {
     //DBに接続/自動切断
@@ -23,7 +19,7 @@ public class AccountDAO extends DAOParam {
             String sql = "SELECT * FROM employee WHERE empid = ? AND emppasswd = ? AND emprole = 0";
             PreparedStatement pStmt = conn.prepareStatement(sql);
             pStmt.setString(1, login.getEmpId());
-            pStmt.setString(2, new SaltUserPassword().getDigest(login.getEmpId(),login.getEmppasswd()));
+            pStmt.setString(2, new SaltUserPassword().getDigest(login.getEmpId(), login.getEmppasswd()));
 
             // SELECTを実行し、結果表を取得
             ResultSet rs = pStmt.executeQuery();
@@ -35,9 +31,9 @@ public class AccountDAO extends DAOParam {
                 String empid = rs.getString("empid");
                 String empfname = rs.getString("empfname");
                 String emplname = rs.getString("emplname");
-                String emppasswd= rs.getString("emppasswd");
+                String emppasswd = rs.getString("emppasswd");
                 int emprole = rs.getInt("emprole");
-                account = new Account(empid,empfname,emplname,emppasswd, emprole);
+                account = new Account(empid, empfname, emplname, emppasswd, emprole);
 
                 // 取得したデータを出力
                 System.out.println("id:" + empid + "empfname:" + empfname + "emplname:" + emplname + "emppasswd:" + emppasswd + "role:" + emprole);

@@ -24,7 +24,17 @@
         <option value="0">なし</option>
         <option value="1">あり</option>
     </select><br>
-    <input type="submit" value="登録">
+    <input type="submit" value="登録" disabled>
 </form>
+
+<script>
+    const inputs = document.querySelectorAll('input[type=text], input[type=number], select');
+    const submitButton = document.querySelector('input[type=submit]');
+    Array.from(inputs).forEach(input => {
+        input.addEventListener('change', () => {
+            submitButton.disabled = Array.from(inputs).some(input => !input.value);
+        });
+    });
+</script>
 </body>
 </html>

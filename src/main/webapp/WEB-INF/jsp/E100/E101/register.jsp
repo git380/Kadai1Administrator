@@ -22,7 +22,16 @@
     <label for="receptionist">受付</label>
     <input type="radio" id="doctor" name="empRole" value="2">
     <label for="doctor">医師</label><br>
-    <input type="submit" value="登録">
+    <input type="submit" value="登録" disabled>
 </form>
+<script>
+    const inputs = document.querySelectorAll('input[type=text], input[type=password], input[type=radio]');
+    const submitButton = document.querySelector('input[type=submit]');
+    Array.from(inputs).forEach(input => {
+        input.addEventListener('change', () => {
+            submitButton.disabled = Array.from(inputs).some(input => !input.value) || !Array.from(document.querySelectorAll('input[type=radio]:checked')).length;
+        });
+    });
+</script>
 </body>
 </html>

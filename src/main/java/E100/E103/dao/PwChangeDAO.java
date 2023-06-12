@@ -1,6 +1,7 @@
 package E100.E103.dao;
 
 import A100.dao.DAOParam;
+import L100.L101.hash.SaltUserPassword;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -15,7 +16,7 @@ public class PwChangeDAO extends DAOParam {
             String sql = "UPDATE employee SET emppasswd = ? WHERE empid = ? ";
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setString(1, empPasswd);
-            statement.setString(2, empId);
+            statement.setString(2, new SaltUserPassword().getDigest(empId,empPasswd));
             statement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();

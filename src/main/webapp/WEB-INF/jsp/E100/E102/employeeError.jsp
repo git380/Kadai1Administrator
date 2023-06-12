@@ -7,9 +7,9 @@
 </head>
 <body>
 <h2 style="color: red">エラーが発生しました</h2>
-<p>IDが一致しています。</p>
-<form action="HospitalRegistrationServlet" method="get">
-    <input type="submit" value="登録画面へ戻る">
+<p>従業員が見つかりません。</p>
+<form action="WelcomeServlet" method="get">
+    <input type="submit" value="ホームへ戻る">
 </form>
 </body>
 </html>

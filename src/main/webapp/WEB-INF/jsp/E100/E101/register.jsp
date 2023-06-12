@@ -17,7 +17,7 @@
     <input type="text" id="lName" name="lName"><br>
     <label for="empPasswd">パスワード:</label>
     <input type="password" id="empPasswd" name="empPasswd"><br>
-    <label>役割:</label>
+    <label>ロール:</label>
     <input type="radio" id="receptionist" name="empRole" value="1">
     <label for="receptionist">受付</label>
     <input type="radio" id="doctor" name="empRole" value="2">

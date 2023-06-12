@@ -4,10 +4,10 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>他住所→病院検索結果</title>
+  <title>他病院住所検索結果</title>
 </head>
 <body>
-<h1>他住所→病院検索結果</h1>
+<h1>他病院住所検索結果</h1>
 <c:if test="${not empty hospitals}">
   <table>
     <tr>

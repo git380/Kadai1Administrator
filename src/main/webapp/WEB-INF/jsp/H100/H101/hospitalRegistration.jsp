@@ -16,7 +16,7 @@
     <label for="tabyouinaddres">他病院住所:</label>
     <input type="text" id="tabyouinaddres" name="tabyouinaddres"><br>
     <label for="tabyouintel">他病院電話番号:</label>
-    <input type="text" id="tabyouintel" name="tabyouintel"><br>
+    <input type="text" id="tabyouintel" name="tabyouintel" pattern="[\d\-]+" minlength="9"><br>
     <label for="tabyouinshihonkin">資本金:</label>
     <input type="number" id="tabyouinshihonkin" name="tabyouinshihonkin"><br>
     <label for="kyukyu">救急対応:</label>

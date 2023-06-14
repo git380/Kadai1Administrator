@@ -19,17 +19,13 @@ public class EmployeeSearchServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        // Perform employee search
         EmployeeLogic searchLogic = new EmployeeLogic();
         List<Employee> employeeList = searchLogic.allEmployees();
 
-        if (employeeList.isEmpty()) {
-            // Forward to error page if no employees found
+        if (employeeList.isEmpty()) {// 従業員がいない場合
             RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/E100/E102/employeeError.jsp");
             dispatcher.forward(request, response);
         } else {
-            // Forward to employee list page
-            System.out.println(employeeList);
             request.setAttribute("employeeList", employeeList);
             RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/E100/E102/employeeList.jsp");
             dispatcher.forward(request, response);
@@ -39,10 +35,8 @@ public class EmployeeSearchServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        // Get the selected employee ID
         String empId = request.getParameter("empId");
 
-        // Forward to the employee update page
         request.setAttribute("empId", empId);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/E100/E102/employeeUpdate.jsp");
         dispatcher.forward(request, response);

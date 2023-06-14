@@ -8,7 +8,7 @@
 <body>
 <h2 style="color: red">エラーが発生しました</h2>
 <p>IDが一致しています。</p>
-<form action="RegistrationServlet" method="get">
+<form action="RegisterServlet" method="get">
     <input type="submit" value="登録画面へ戻る">
 </form>
 </body>

@@ -15,8 +15,11 @@
     <input type="text" id="tabyouinmei" name="tabyouinmei"><br>
     <label for="tabyouinaddres">他病院住所:</label>
     <input type="text" id="tabyouinaddres" name="tabyouinaddres"><br>
-    <label for="tabyouintel">他病院電話番号:</label>
-    <input type="text" id="tabyouintel" name="tabyouintel" pattern="[\d\-]+" minlength="9"><br>
+    <label>他病院電話番号:</label>
+    <input type="text" id="tabyouintel1" name="tabyouintel1" pattern="[\d]+" minlength="3" maxlength="4">-
+    <input type="text" id="tabyouintel2" name="tabyouintel2" pattern="[\d]+" minlength="3" maxlength="4">-
+    <input type="text" id="tabyouintel3" name="tabyouintel3" pattern="[\d]+" minlength="3" maxlength="4"><br>
+    <input type="text" name="tabyouintel" value="" id="tabyouintel-hidden"><br>
     <label for="tabyouinshihonkin">資本金:</label>
     <input type="number" id="tabyouinshihonkin" name="tabyouinshihonkin" min="0"><br>
     <label for="kyukyu">救急対応:</label>
@@ -35,6 +38,20 @@
             submitButton.disabled = Array.from(inputs).some(input => !input.value);
         });
     });
+
+    const tabyouintel1 = document.getElementById('tabyouintel1');
+    const tabyouintel2 = document.getElementById('tabyouintel2');
+    const tabyouintel3 = document.getElementById('tabyouintel3');
+
+    const tabyouintelHidden = document.getElementById('tabyouintel-hidden');
+
+    function updateHidden() {
+        tabyouintelHidden.value = tabyouintel1.value + '-' + tabyouintel2.value + '-' + tabyouintel3.value;
+    }
+
+    tabyouintel1.addEventListener('input', updateHidden);
+    tabyouintel2.addEventListener('input', updateHidden);
+    tabyouintel3.addEventListener('input', updateHidden);
 </script>
 </body>
 </html>

@@ -14,7 +14,14 @@ import java.util.List;
 
 @WebServlet("/HospitalSearchServlet")
 public class HospitalSearchServlet extends HttpServlet {
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        // セッションスコープからユーザーIDを取得
+        if (request.getSession().getAttribute("empId") == null) {
+            // ログイペレイト
+            response.sendRedirect("LoginServlet");
+            return;
+        }
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/H100/H103/hospitalSearch.jsp");
         dispatcher.forward(request, response);
     }

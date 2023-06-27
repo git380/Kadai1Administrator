@@ -17,6 +17,12 @@ public class HospitalRegistrationServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        // セッションスコープからユーザーIDを取得
+        if (request.getSession().getAttribute("empId") == null) {
+            // ログイペレイト
+            response.sendRedirect("LoginServlet");
+            return;
+        }
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/H100/H101/hospitalRegistration.jsp");
         dispatcher.forward(request, response);

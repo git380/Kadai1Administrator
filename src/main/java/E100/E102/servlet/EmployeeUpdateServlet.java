@@ -16,8 +16,14 @@ public class EmployeeUpdateServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        // セッションスコープからユーザーIDを取得
+        if (request.getSession().getAttribute("empId") == null) {
+            // ログイペレイト
+            response.sendRedirect("LoginServlet");
+            return;
+        }
 
-        // Forward to the employee update confirmation page
+        // 従業員更新確認
         String empId = request.getParameter("empId");
         request.setAttribute("empId", empId);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/E100/E102/employeeUpdateConfirm.jsp");
@@ -27,19 +33,21 @@ public class EmployeeUpdateServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        // Get the updated employee details
+        // リクエストパラメータの取得
+        request.setCharacterEncoding("UTF-8");
+        // 従業員情報受け取り
         String empId = request.getParameter("empId");
         String empFname = request.getParameter("firstName");
         String empLname = request.getParameter("lastName");
 
-        // Perform employee update
+        // 従業員更新
         EmployeeLogic updateLogic = new EmployeeLogic();
         boolean success = updateLogic.updateEmployee(empId, empFname, empLname);
 
         if (success) {
             response.sendRedirect("/Kadai1Administrator/EmployeeUpdateServlet");
         } else {
-            // Forward to error page if update failed
+            // エラーjspへフォワード
             RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/E100/E102/error.jsp");
             dispatcher.forward(request, response);
         }

@@ -18,6 +18,12 @@ public class EmployeeSearchServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        // セッションスコープからユーザーIDを取得
+        if (request.getSession().getAttribute("empId") == null) {
+            // ログイペレイト
+            response.sendRedirect("LoginServlet");
+            return;
+        }
 
         EmployeeLogic searchLogic = new EmployeeLogic();
         List<Employee> employeeList = searchLogic.allEmployees();

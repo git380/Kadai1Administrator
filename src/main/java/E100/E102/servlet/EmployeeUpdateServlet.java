@@ -16,15 +16,15 @@ public class EmployeeUpdateServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        String empId = request.getParameter("empId");
+
         // セッションスコープからユーザーIDを取得
-        if (request.getSession().getAttribute("empId") == null) {
+        if (empId == null) {
             // ログイペレイト
-            response.sendRedirect("LoginServlet");
+            response.sendRedirect("WelcomeServlet");
             return;
         }
-
         // 従業員更新確認
-        String empId = request.getParameter("empId");
         request.setAttribute("empId", empId);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/E100/E102/employeeUpdateConfirm.jsp");
         dispatcher.forward(request, response);

@@ -18,7 +18,7 @@ public class EmployeeUpdateServlet extends HttpServlet {
             throws ServletException, IOException {
         String empId = request.getParameter("empId");
 
-        // セッションスコープからユーザーIDを取得
+        // ユーザーIDがない場合
         if (empId == null) {
             // ログイペレイト
             response.sendRedirect("WelcomeServlet");
